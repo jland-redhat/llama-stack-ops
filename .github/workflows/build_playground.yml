@@ -24,7 +24,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          repository: jland/llama-stack #TODO: Change This
+          repository: Jaland/llama-stack #TODO: Change This
           ref: container-fix # May wan to make this an input in the future
       
 
