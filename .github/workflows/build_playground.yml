@@ -24,7 +24,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          repository: https://github.com/meta-llama/llama-stack #TODO: Change This
+          repository: meta-llama/llama-stack #TODO: Change This
           token: ${{ secrets.LLAMA_STACK_REPO_TOKEN }}
           ref: main # May wan to make this an input in the future
       
