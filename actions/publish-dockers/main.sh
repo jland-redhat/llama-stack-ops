@@ -19,7 +19,6 @@ release_exists() {
   return 1
 }
 
-
 if release_exists "test.pypi"; then
   echo "Version $VERSION found in test.pypi"
   PYPI_SOURCE="testpypi"
@@ -34,7 +33,7 @@ fi
 set -x
 TMPDIR=$(mktemp -d)
 cd $TMPDIR
-uv venv -p python3.10
+uv venv -p python3.12
 source .venv/bin/activate
 
 uv pip install --index-url https://test.pypi.org/simple/ \
@@ -44,7 +43,6 @@ uv pip install --index-url https://test.pypi.org/simple/ \
 
 which llama
 llama stack list-apis
-
 
 build_and_push_docker() {
   template=$1
@@ -69,9 +67,8 @@ build_and_push_docker() {
   fi
 }
 
-
 if [ -z "$TEMPLATES" ]; then
-  TEMPLATES=(ollama together fireworks bedrock remote-vllm tgi meta-reference-gpu)
+  TEMPLATES=(starter tgi meta-reference-gpu postgres-demo)
 else
   TEMPLATES=(${TEMPLATES//,/ })
 fi
